@@ -13,9 +13,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
-    <meta name="author" content="John Doe">
+    <meta name="author" content="Hi-to-you">
     <meta name="renderer" content="webkit">
-    <meta name="copyright" content="John Doe">
+    <meta name="copyright" content="Hi-to-you">
     
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
@@ -359,23 +359,28 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/30/hello-world/" >
+        <a class="abstract-title" href = "/2018/10/18/bugku/" >
             
-                <span>Hello World</span>
+                <span>Bugku WriteUp</span>
         </a>
         <div class="abstract-content">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More...
+            矛盾
+判断输入的num  如果不是数字的话且为1的话输出flag 但是我们有很多方法让num为1但是不是数字 使用is_numeric遇到%00截断的漏洞,进行构造http://120.24.86.145:8002/get/index1.php?num=1%00get请求爆出flag 
+web3直接查看原码 将下面那一行字符串进行HTML解码 这题难度可能较低，主要是明白这个是什么码，题目做的多的大佬可能一眼就能看出来解法了。
+本地包含$_REQUEST对get，post都能接受include“flag.php”说明该文件还存在本地获得hello的值，由于hello为’hello’，所以...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/30</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
             </div>
             <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+</div>
             
         </div>
     </article>
@@ -617,13 +622,15 @@ More...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/30</span><a class="archive-post-title" href= "/2018/09/30/hello-world/" >Hello World</a>
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/bugku/" >Bugku WriteUp</a>
         </li>
     
     </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -658,6 +665,8 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
+        <span class="sidebar-category-name" data-categories="CTF"><span class="iconfont-archer">&#xe60a;</span>CTF</span>
+    
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
     <div class="sidebar-categories-list"></div>
@@ -667,7 +676,7 @@ jsonContent:
     <script>
     var siteMeta = {
         root: "/",
-        author: "John Doe"
+        author: "Hi-to-you"
     }
 </script>
     <!-- CDN failover -->
