@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">668</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -416,6 +416,8 @@ height:50vh;
 </ol>
 <h1 id="眼见非实"><a href="#眼见非实" class="headerlink" title="眼见非实"></a>眼见非实</h1><p>打开软件，发现是以504B0304开头，说明是zip文件<br><br><img src="https://i.imgur.com/v8Qajt2.png" alt=""><br><br>将文件名后缀名更改为zip，将其解压<br><br><img src="https://i.imgur.com/7FZhBzx.png" alt=""><br><br>把里面的文件打开看<br><br><img src="https://i.imgur.com/bkOPAPx.png" alt=""><br></p>
 <h1 id="又一张图片，还单纯嘛？"><a href="#又一张图片，还单纯嘛？" class="headerlink" title="又一张图片，还单纯嘛？"></a>又一张图片，还单纯嘛？</h1><p>题目给出一张图片。我们把它放到kali里，用binwalk分析一下<br><br><img src="https://i.imgur.com/5fC8xLR.png" alt=""><br><br>发现图片里还包含着一张图片，我们用<code>foremost</code>分离出来<br><br><img src="https://i.imgur.com/hZYZqwW.png" alt=""><br><br>将图片分离出来，flag就直接在图片上<br><br><img src="https://i.imgur.com/8AZBl1G.png" alt=""><br></p>
+<h1 id="闪的好快"><a href="#闪的好快" class="headerlink" title="闪的好快"></a>闪的好快</h1><p>题目给我们一张gif图片，打开之后发现在真的像题目描述一样，闪的巨快<br><br>这个时候我们可以考虑把它分帧，通过在线分帧的方式我们得到十六张二维码的图片<br><br><img src="https://i.imgur.com/xEOoHPh.png" alt=""><br><br>当然我们也可以通过工具来解这题<br><br>这里我们使用StegSolve，然后Analysis-&gt;Frame Browser<br><br><img src="https://i.imgur.com/4j7WZg1.png" alt=""><br><br>通过在线解二维码，得到flag<br><br><code>flag:SYC{F1aSh_so_f4sT}</code></p>
+<h1 id="隐写2"><a href="#隐写2" class="headerlink" title="隐写2"></a>隐写2</h1><p>把图片下载到桌面，没什么头绪，直接扔进winhex看看<br><br>看到了很多00填充数据，怀疑是捆绑了文件在里面<br><br>将图片后缀名改为zip并解压<br><br><img src="https://i.imgur.com/Pl5tfyt.png" alt=""><br><br>里面捆绑着一个压缩包和一张图片，图片的内容提示的就是这个压缩包的密码<br><br><img src="https://i.imgur.com/Hlq7xHS.jpg" alt=""><br><br>这个肯定是要我们猜解密码，太费事了，我们直接选择暴力破解<br><br><img src="https://i.imgur.com/DFbFcb5.png" alt=""><br><br>因为我这个是zip破解软件，所以我把后缀名改为了zip进行破解<br><img src="https://i.imgur.com/vJX4gc8.png" alt=""><br><br>提示说是三位数，所以我们把长度改为3<br><br><img src="https://i.imgur.com/bAEh8D3.png" alt=""><br><br>这样我们就把flag.rar的密码给爆破出来啦<br><br><img src="https://i.imgur.com/kjvpxlB.jpg" alt=""><br><br>解压之后又是一张图片，令人猝不及防,这个直接用记事本打开就好<br><br><img src="https://i.imgur.com/NhYhfVj.png" alt=""><br><br>按照以前的套路，关键信息往往藏在最后面，在最后面发现一串类密文的字符串<br><br><code>f1@g{eTB1IEFyZSBhIGhAY2tlciE=}</code><br><br>我们把里面的密文进行base64解密<br><br><img src="https://i.imgur.com/jHRLEyp.png" alt=""><br><br><code>flag:flag{y0u Are a h@cker!}</code></p>
 
     </article>
     <!-- license  -->
@@ -424,7 +426,7 @@ height:50vh;
             <p>原文作者：<a href="http://yoursite.com">Hi-to-you</a>
             <p>原文链接：<a href="http://yoursite.com/2018/10/18/bugku/">http://yoursite.com/2018/10/18/bugku/</a>
             <p>发表日期：<a href="http://yoursite.com/2018/10/18/bugku/">October 18th 2018, 8:29:47 am</a>
-            <p>更新日期：<a href="http://yoursite.com/2018/10/18/bugku/">October 18th 2018, 8:33:55 am</a>
+            <p>更新日期：<a href="http://yoursite.com/2018/10/18/bugku/">October 18th 2018, 2:54:31 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -558,7 +560,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#矛盾"><span class="toc-number">1.</span> <span class="toc-text">矛盾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web3"><span class="toc-number">2.</span> <span class="toc-text">web3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地包含"><span class="toc-number">3.</span> <span class="toc-text">本地包含</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#flag在index里"><span class="toc-number">4.</span> <span class="toc-text">flag在index里</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网站被黑"><span class="toc-number">5.</span> <span class="toc-text">网站被黑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过狗一句话"><span class="toc-number">6.</span> <span class="toc-text">过狗一句话</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#眼见非实"><span class="toc-number">7.</span> <span class="toc-text">眼见非实</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#又一张图片，还单纯嘛？"><span class="toc-number">8.</span> <span class="toc-text">又一张图片，还单纯嘛？</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#矛盾"><span class="toc-number">1.</span> <span class="toc-text">矛盾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web3"><span class="toc-number">2.</span> <span class="toc-text">web3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地包含"><span class="toc-number">3.</span> <span class="toc-text">本地包含</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#flag在index里"><span class="toc-number">4.</span> <span class="toc-text">flag在index里</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网站被黑"><span class="toc-number">5.</span> <span class="toc-text">网站被黑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过狗一句话"><span class="toc-number">6.</span> <span class="toc-text">过狗一句话</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#眼见非实"><span class="toc-number">7.</span> <span class="toc-text">眼见非实</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#又一张图片，还单纯嘛？"><span class="toc-number">8.</span> <span class="toc-text">又一张图片，还单纯嘛？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#闪的好快"><span class="toc-number">9.</span> <span class="toc-text">闪的好快</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#隐写2"><span class="toc-number">10.</span> <span class="toc-text">隐写2</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
