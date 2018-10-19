@@ -346,20 +346,24 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/18/bugku/" >
+        <a class="abstract-title" href = "/2018/10/19/密码学/" >
             
-                <span>Bugku WriteUp</span>
+                <span>密码学</span>
         </a>
         <div class="abstract-content">
-            矛盾
-判断输入的num  如果不是数字的话且为1的话输出flag 但是我们有很多方法让num为1但是不是数字 使用is_numeric遇到%00截断的漏洞,进行构造http://120.24.86.145:8002/get/index1.php?num=1%00get请求爆出flag 
-web3直接查看原码 将下面那一行字符串进行HTML解码 这题难度可能较低，主要是明白这个是什么码，题目做的多的大佬可能一眼就能看出来解法了。
-本地包含$_REQUEST对get，post都能接受include“flag.php”说明该文件还存在本地获得hello的值，由于hello为’hello’，所以...
+            关于解密的在线网站我们经常在做CTF题目中，会遇到各种各样的密文，所以今天推荐一些在线解密网站.
+
+xssee:http://web2hack.org/xssee
+在线编码解码(多种并排):http://bianma.911cha.com
+在线加密解密(多种):http://encode.chahuo.com
+凯撒密码:http://planetcalc.com/1434/
+ROT5/13/18/47编码转换:http://www.qqxiuzi.cn/bianma/ROT5-13-18-47.php
+Base32:https://tools.deamwork.com/crypt/dec...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/19</span>
             </div>
             <!-- tags  -->
             
