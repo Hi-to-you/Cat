@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Hi-to-you">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Hi-to-you">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Security service · Hi-to-you&#39;s blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/Misaka.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Hi-to-you&#39;s blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Security service</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Hi-to-you's blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Security service
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "REV">REV</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">3.1k</span>阅读时长: <span class="post-count reading-time">10 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/11/29</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="数据加密"><a href="#数据加密" class="headerlink" title="数据加密"></a>数据加密</h1><h2 id="数据加密模型"><a href="#数据加密模型" class="headerlink" title="数据加密模型"></a>数据加密模型</h2><p><img src="https://i.imgur.com/NfUWbYc.png" alt=""><br></p>
+<h2 id="数据加密概念"><a href="#数据加密概念" class="headerlink" title="数据加密概念"></a>数据加密概念</h2><p>数据加密是指将一个信息（明文）经过加密密钥及加密函数转换为没有意义的另一个信息（密文）的过程。该过程的逆过程称为加密。<br></p>
+<pre><code>明文：加密前的原始信息；
+密文：明文被加密后的信息；
+密钥：控制加密算法和解密算法得以实现的关键信息，分为加密密钥和解密密钥；
+加密：将明文通过数学算法转换成密文的过程；
+解密：将密文还原成明文的过程。
+</code></pre><p>密码技术是解决信息安全最有效的手段，是解决信息安全的<strong>核心技术</strong>。<br><br>数据加密的<strong>基本思想</strong>是通过变换信息的表示形式来伪装需要保护的敏感信息，使非授权者不能了解被保护信息的内容。<br><br>使用密码技术的<strong>目的</strong>是为了保护信息的保密性、完整性和真实性。<br></p>
+<h2 id="数据加密原理"><a href="#数据加密原理" class="headerlink" title="数据加密原理"></a>数据加密原理</h2><h3 id="对称密钥加密（保密密钥法）"><a href="#对称密钥加密（保密密钥法）" class="headerlink" title="对称密钥加密（保密密钥法）"></a>对称密钥加密（保密密钥法）</h3><p><img src="https://i.imgur.com/XU5QmKN.png" alt=""><br><br>对称密码是一种传统的密码体制，也称私钥密码体制，对称密码算法可分为两类：<br></p>
+<ul>
+<li>序列算法：对明文中的单个位（或字节）运算的算法。例：凯撒密码。<br></li>
+</ul>
+<ul>
+<li>分组算法：把明文信息分割成块结构，逐块予以加密和解密。例：DES。<br></li>
+</ul>
+<h3 id="非对称密钥加密（公开密钥法）"><a href="#非对称密钥加密（公开密钥法）" class="headerlink" title="非对称密钥加密（公开密钥法）"></a>非对称密钥加密（公开密钥法）</h3><p><img src="https://i.imgur.com/HOBVALW.png" alt=""><br><br>特点：<br><br>①　加密和解密使用两个不同的密钥<br><br>②　加密和解密不可推导<br><br>③　算法复杂，效率低<br><br>④　适用于开放网络中<br><br>⑤　可用于数字签名<br></p>
+<pre><code>加密：C=E(M,Ke)
+解密：M=D(C,Kd)
+可逆：D(E(M,Ke),Kd)=M
+</code></pre><h3 id="单向散列算法（哈希算法）"><a href="#单向散列算法（哈希算法）" class="headerlink" title="单向散列算法（哈希算法）"></a>单向散列算法（哈希算法）</h3><p><strong>哈希算法</strong>将任意长度的二进制映射为较短的固定长度的二进制值，这个小的二进制值称为哈希值。哈希值是一段数据唯一且极其紧凑的数值形式表示，可提供<strong>完整性</strong>的判断依据。<br><br>哈希（Hash）算法，即散列函数。它是一种单向密码体制，即它是一个从明文到密文的不可逆的映射，只有加密过程，没有解密过程。<br><br><img src="https://i.imgur.com/vTkostA.png" alt=""><br><br>散列（抗碰撞）：不存在非常困难碰撞现象“报文不同，hash值相同”。<br></p>
+<pre><code>M1≠M2，则Hash(M1)≠Hash(M2)
+Hash(M1)＝Hash(M2)，则M1＝M2
+</code></pre><h1 id="数据完整性"><a href="#数据完整性" class="headerlink" title="数据完整性"></a>数据完整性</h1><h2 id="数据完整性定义"><a href="#数据完整性定义" class="headerlink" title="数据完整性定义"></a>数据完整性定义</h2><p>数据完整性是<strong>防止</strong>非法实体对交换数据的修改、插入、替换和删除，或者如果被修改、插入、替换和删除时可以被检测出来。数据完整性可以通过消息认证模式来保证。<br></p>
+<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><pre><code>(1)发送方根据要发送的原信息M0，利用验证码函数产生与M0密切相关的信息验证码C0；
+(2)发送方把原始信息M0和信息验证码C0合在一起，并通过网络发送给接收方；
+(3)接受方对所收到的原信息和验证码进行分离，假设分别为M1和C1，因为这两个信息可能已被篡改；
+(4)接收方使用原始信息相同的信息验证码函数（双方事先约定好的）对收到的信息部分M1计算其自己的信息验证码C2；
+(5)接收方将自己制作的接收方信息验证码同分离出来的信息验证码C1进行对比，如果相等，接收方断定收到的信息M1与用户发送的信息M0是相同的，如果不相等，则接收方知道原始信息已经被篡改。
+</code></pre><h2 id="数据完整性模型"><a href="#数据完整性模型" class="headerlink" title="数据完整性模型"></a>数据完整性模型</h2><p><img src="https://i.imgur.com/Z67jHpK.png" alt=""><br></p>
+<h2 id="数据完整性机制"><a href="#数据完整性机制" class="headerlink" title="数据完整性机制"></a>数据完整性机制</h2><h3 id="完整性验证中加密的安全"><a href="#完整性验证中加密的安全" class="headerlink" title="完整性验证中加密的安全"></a>完整性验证中加密的安全</h3><p>数据完整性的一些机制需要对其中的内容进行加密，例如摘要。<br></p>
+<h3 id="数据完整性验证的信息有效率"><a href="#数据完整性验证的信息有效率" class="headerlink" title="数据完整性验证的信息有效率"></a>数据完整性验证的信息有效率</h3><p>数据完整性验证的信息有效率是指原信息部分长度与合并后信息（包括原信息和验证码）的长度之比。<br></p>
+<h3 id="完整性验证算法的性能"><a href="#完整性验证算法的性能" class="headerlink" title="完整性验证算法的性能"></a>完整性验证算法的性能</h3><p>数据完整性验证包括发送方计算验证码，进行加密，接收方重新计算验证码，进行解密，比较等。<br></p>
+<h3 id="完整性验证算法的性能-1"><a href="#完整性验证算法的性能-1" class="headerlink" title="完整性验证算法的性能"></a>完整性验证算法的性能</h3><p>数据完整性验证包括发送方计算验证码，进行加密，接收方重新计算验证码，进行解密，比较等。<br></p>
+<h2 id="基于数据校验思想的数据完整性验证机制"><a href="#基于数据校验思想的数据完整性验证机制" class="headerlink" title="基于数据校验思想的数据完整性验证机制"></a>基于数据校验思想的数据完整性验证机制</h2><p><img src="https://i.imgur.com/icrwP3H.png" alt=""><br></p>
+<p><strong>总结</strong>：能检测出数据发生错误的机制并不一定能对数据完整性检测有效。<br><br><strong>解决方法</strong>：对发送的数据进行加密。<br></p>
+<h2 id="基于错误检测码与对称密钥加密的完整性验证机制"><a href="#基于错误检测码与对称密钥加密的完整性验证机制" class="headerlink" title="基于错误检测码与对称密钥加密的完整性验证机制"></a>基于错误检测码与对称密钥加密的完整性验证机制</h2><p><img src="https://i.imgur.com/0WH9vn6.png" alt=""><br><br><img src="https://i.imgur.com/TruIRMB.png" alt=""><br><br><strong>总结</strong>：这个机制防止了攻击者同时把原信息和错误检测码替换并且保持它们之间的正确匹配关系的攻击，因为密钥只有双方知道，攻击者同时替换后没办法用双方的密钥K再重新加密。<br><br>这个机制的<strong>前提</strong>是需要双方共享对称密钥K，存在密钥的发布问题和缺点。如果改为非对称加密体制的速度又太慢，因此要将二者结合。<br></p>
+<h2 id="基于非对称密钥和对称密钥结合的完整性验证机制"><a href="#基于非对称密钥和对称密钥结合的完整性验证机制" class="headerlink" title="基于非对称密钥和对称密钥结合的完整性验证机制"></a>基于非对称密钥和对称密钥结合的完整性验证机制</h2><p><img src="https://i.imgur.com/6tRHW1X.png" alt=""><br><br><strong>总结</strong>：<br></p>
+<ul>
+<li>优点是双方不需要共享密钥；<br></li>
+</ul>
+<ul>
+<li>接收者确信信息未被更改过；<br></li>
+</ul>
+<ul>
+<li>信息的有效率高。<br></li>
+</ul>
+<h1 id="防止抵赖"><a href="#防止抵赖" class="headerlink" title="防止抵赖"></a>防止抵赖</h1><h2 id="防止抵赖的意义"><a href="#防止抵赖的意义" class="headerlink" title="防止抵赖的意义"></a>防止抵赖的意义</h2><p>数据完整性保证发送方和接收方的网络传送数据<strong>不被第三方篡改和替换</strong>，但不能保证双方自身的欺骗和抵赖。<br><br>在双方自身的欺骗中，双方的不可抵赖性是网络安全的一个重要安全特性。<br><br>旨在生成、收集、维护有关己声明的事件或动作的<strong>证据</strong>，并使该证据可得并且确认该证据。<br></p>
+<h2 id="防止抵赖的基本思路"><a href="#防止抵赖的基本思路" class="headerlink" title="防止抵赖的基本思路"></a>防止抵赖的基本思路</h2><p>通过用户自己独有的、唯一的特征（如私钥）对信息进行标记或者通过可信第三方进行公正处理来防止双方的抵赖行为。<br><br>抗抵赖机制的实现可以通过<strong>数字签名</strong>来保证。<br><br>一个完整的抗抵赖机制包括两个部分：一个是签名部分，另一个是验证部分，<strong>签名</strong>部分的密钥只有签名人掌握，这也是抗抵赖性的前提和假设；验证部分的密钥应当公开，以便于他人验证。<br></p>
+<h2 id="不可抵赖机制"><a href="#不可抵赖机制" class="headerlink" title="不可抵赖机制"></a>不可抵赖机制</h2><ul>
+<li>抗抵赖性机制的信息有效率<br></li>
+</ul>
+<ul>
+<li>抗抵赖性机制是否具有双向抵赖功能<br></li>
+</ul>
+<ul>
+<li>抗抵赖性机制是否同时具有保密，完整性验证作用<br></li>
+</ul>
+<ul>
+<li>抗抵赖性机制的性能<br></li>
+</ul>
+<h2 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h2><h3 id="数字签名的意义"><a href="#数字签名的意义" class="headerlink" title="数字签名的意义"></a>数字签名的意义</h3><p>签名是证明当事人（个人或组织）认可相关信息的证据，防止当事人事后否认。<br></p>
+<h3 id="数字签名的特性"><a href="#数字签名的特性" class="headerlink" title="数字签名的特性"></a>数字签名的特性</h3><p>①　真实性</p>
+<ul>
+<li>身份真实，其他任何人不能伪造签名（唯一性）； </li>
+</ul>
+<ul>
+<li>被签的信息真实（纸将信息与签名绑定）；</li>
+</ul>
+<p>②　防止抵赖：签名者事后不能抵赖。<br></p>
+<h1 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h1><h2 id="身份认证的含义"><a href="#身份认证的含义" class="headerlink" title="身份认证的含义"></a>身份认证的含义</h2><ul>
+<li>是证实某实体（人、主机）是否合法有效的一个过程。</li>
+</ul>
+<ul>
+<li>认证涉及声称者与验证者，声称者提供证据（参数），验证者验证证据。</li>
+</ul>
+<h2 id="身份认证的参数"><a href="#身份认证的参数" class="headerlink" title="身份认证的参数"></a>身份认证的参数</h2><ul>
+<li>于你所知道的：知识、口令、密码等</li>
+</ul>
+<ul>
+<li>基于你所拥有的：身份证、信用卡、钥匙、智能卡、令牌等</li>
+</ul>
+<ul>
+<li>基于你的个人特征：指纹、笔迹、声音、虹膜等</li>
+</ul>
+<ul>
+<li>双因素、多因素认证：综合上述两种或多种因素进行认证</li>
+</ul>
+<h2 id="明文方式"><a href="#明文方式" class="headerlink" title="明文方式"></a>明文方式</h2><ul>
+<li>认证系统数据库中明文存储口令</li>
+</ul>
+<ul>
+<li>输入终端和认证系统之间传输明文账户与口令</li>
+</ul>
+<p>认证案例：FTP、Telnet、PAP认证<br><br><img src="https://i.imgur.com/PStE51I.png" alt=""><br></p>
+<h2 id="加密方式"><a href="#加密方式" class="headerlink" title="加密方式"></a>加密方式</h2><ul>
+<li>认证系统数据库存储口令（Hash）</li>
+</ul>
+<ul>
+<li>输入终端和认证系统之间传输加密口令（Hash）</li>
+</ul>
+<p>认证案例：操作系统、数据库、Chap认证<br><br><img src="https://i.imgur.com/HA9s77s.png" alt=""><br></p>
+<h2 id="质询方式"><a href="#质询方式" class="headerlink" title="质询方式"></a>质询方式</h2><ul>
+<li>加密：口令存储传输采用摘要</li>
+</ul>
+<ul>
+<li>动态：每次会话质询不同（随机），动态响应，防止<strong>重放攻击</strong><br><img src="https://i.imgur.com/HIWgKam.png" alt=""><br></li>
+</ul>
+<h2 id="口令认证安全策略"><a href="#口令认证安全策略" class="headerlink" title="口令认证安全策略"></a>口令认证安全策略</h2><ul>
+<li>暴力破解</li>
+</ul>
+<ul>
+<li>避免弱口令（增加长度、复杂度）</li>
+</ul>
+<ul>
+<li>防猜测/暴力破解/字典攻击</li>
+</ul>
+<ul>
+<li>防盗号木马（软键盘）</li>
+</ul>
+<h2 id="口令认证应用"><a href="#口令认证应用" class="headerlink" title="口令认证应用"></a>口令认证应用</h2><p><img src="https://i.imgur.com/Jg0VXVC.png" alt=""><br></p>
+<h2 id="认证令牌"><a href="#认证令牌" class="headerlink" title="认证令牌"></a>认证令牌</h2><ul>
+<li>双因素认证：认证令牌（拥有令牌）和开启令牌的PIN（知道某事）</li>
+</ul>
+<ul>
+<li>用户认证令牌与认证系统数据库保存相同中子数</li>
+</ul>
+<h2 id="质询-响应方式"><a href="#质询-响应方式" class="headerlink" title="质询/响应方式"></a>质询/响应方式</h2><p>常用的为两种（基于时间戳，基于随机数）<br></p>
+<h2 id="对称密码认证基础"><a href="#对称密码认证基础" class="headerlink" title="对称密码认证基础"></a>对称密码认证基础</h2><ul>
+<li>质询/响应方式</li>
+</ul>
+<ul>
+<li>认证的基础为双方共享密钥Ks（加密/解密）<br><img src="https://i.imgur.com/Zd5YM10.png" alt=""><br></li>
+</ul>
+<h2 id="对称密码认证模型"><a href="#对称密码认证模型" class="headerlink" title="对称密码认证模型"></a>对称密码认证模型</h2><ul>
+<li>基于KDC产生分配会话密钥Ks</li>
+</ul>
+<ul>
+<li>一次（会话）一密</li>
+</ul>
+<p><img src="https://i.imgur.com/1pdVSIe.png" alt=""><br><br><img src="https://i.imgur.com/Rq7jqX7.png" alt=""><br></p>
+<h2 id="公钥密码认证基础"><a href="#公钥密码认证基础" class="headerlink" title="公钥密码认证基础"></a>公钥密码认证基础</h2><ul>
+<li><p>质询/响应方式</p>
+</li>
+<li><p>认证的基础为被认证方的私钥（签名/验证）<br><img src="https://i.imgur.com/xiRZ8ph.png" alt=""><br></p>
+</li>
+</ul>
+<h1 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h1><h2 id="访问控制的意义"><a href="#访问控制的意义" class="headerlink" title="访问控制的意义"></a>访问控制的意义</h2><p>访问控制就是在身份认证的基础上，通过对访问的申请、批准和撤销的全过程进行有效控制，从而确保只有合法用户的合法访问给予批准，而且相应的访问只能执行授权的操作。<br></p>
+<h2 id="访问控制的三要素"><a href="#访问控制的三要素" class="headerlink" title="访问控制的三要素"></a>访问控制的三要素</h2><ul>
+<li>主体：主动的实体，可以访问客体。</li>
+</ul>
+<ul>
+<li>客体：是一个被动的实体，对客体的访问要受控。</li>
+</ul>
+<ul>
+<li><p>控制策略：主体对客体的访问规则集，规定主体对客体作用行为和客体对</p>
+</li>
+<li><p>主体的条件约束，控制策略体现为一种授权行为。</p>
+</li>
+</ul>
+<h2 id="访问控制的两个重要过程"><a href="#访问控制的两个重要过程" class="headerlink" title="访问控制的两个重要过程"></a>访问控制的两个重要过程</h2><ul>
+<li>通过“鉴别”来检验主体的合法身份（身份认证）</li>
+</ul>
+<ul>
+<li>通过“授权”来限制主体对客体的访问权限</li>
+</ul>
+<h2 id="访问控制关系模型"><a href="#访问控制关系模型" class="headerlink" title="访问控制关系模型"></a>访问控制关系模型</h2><p><img src="https://i.imgur.com/RbUBE3X.png" alt=""><br></p>
+<h2 id="自主访问控制（DAC或基于身份的访问控制）"><a href="#自主访问控制（DAC或基于身份的访问控制）" class="headerlink" title="自主访问控制（DAC或基于身份的访问控制）"></a>自主访问控制（DAC或基于身份的访问控制）</h2><p>客体的所有者按照自己的安全策略授予系统中的其他用户对客体的访问权。<br><br><strong>优点</strong>：灵活度高，被大量采用。<br><br><strong>缺点</strong>：安全性低。信息在移动过程中其访问权限关系会被改变。<br></p>
+<h2 id="强制访问控制（MAC或基于规则的访问控制）"><a href="#强制访问控制（MAC或基于规则的访问控制）" class="headerlink" title="强制访问控制（MAC或基于规则的访问控制）"></a>强制访问控制（MAC或基于规则的访问控制）</h2><p>系统根据主体和客体的安全属性，以强制的方式控制主体和的访问。<br><br>系统中资源划分为不同的安全等级和类别（绝密级、机密级、秘密级、无密级）<br><br><strong>特点</strong>：取决于能用算法表达的并能在计算机上执行的策略。策略给出资源受到的限制和实体的授权，对资源的访问取决于实体的授权而非实体的身份。<br><br><strong>缺点</strong>：缺乏灵活性。<br></p>
+<h2 id="强制访问控制实现机制"><a href="#强制访问控制实现机制" class="headerlink" title="强制访问控制实现机制"></a>强制访问控制实现机制</h2><p>(1)将主体和客体分级，根据主体和客体的级别标记来决定访问模式<br><br>(2)其访问控制关系分为：上读/下写（完整性）、下读/上写（机密性）<br><br>(3)通过安全标签实现单向信息流通模式<br></p>
+<h2 id="基于角色的访问控制（RBAC）"><a href="#基于角色的访问控制（RBAC）" class="headerlink" title="基于角色的访问控制（RBAC）"></a>基于角色的访问控制（RBAC）</h2><h3 id="RBAC产生背景"><a href="#RBAC产生背景" class="headerlink" title="RBAC产生背景"></a>RBAC产生背景</h3><ul>
+<li>当用户数量增加时，系统管理变得复杂，工作量急剧增加。</li>
+</ul>
+<ul>
+<li>当用户权限发生变更时，需进行大量繁琐的授权变动。</li>
+</ul>
+<h3 id="RBAC模型的基本思想"><a href="#RBAC模型的基本思想" class="headerlink" title="RBAC模型的基本思想"></a>RBAC模型的基本思想</h3><ul>
+<li>角色数量不多，权限稳定不变。</li>
+</ul>
+<ul>
+<li>只有系统管理员有权定义和分配角色。</li>
+</ul>
+<h3 id="RBAC安全机制"><a href="#RBAC安全机制" class="headerlink" title="RBAC安全机制"></a>RBAC安全机制</h3><ul>
+<li>角色基数限制</li>
+</ul>
+<ul>
+<li>角色互斥</li>
+</ul>
+<ul>
+<li>角色激活（多角色）</li>
+</ul>
+<h3 id="RBAC特点"><a href="#RBAC特点" class="headerlink" title="RBAC特点"></a>RBAC特点</h3><ul>
+<li>采用角色基数限制最大授权用户数，采用角色互斥实现职责分离安全原则，采用活跃角色集实现最小特权安全原则。</li>
+</ul>
+<h3 id="与企业分层管理结构一致"><a href="#与企业分层管理结构一致" class="headerlink" title="与企业分层管理结构一致"></a>与企业分层管理结构一致</h3><ul>
+<li>角色/权限之间的变化比角色/用户之间的变化相对要慢得多（区别于组）。</li>
+</ul>
+
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/10/19/Cryptography/" title= "Cryptography">
+                    <div class="prevTitle">Cryptography</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:761565584@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/Hi-to-you" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/example_qq.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据加密"><span class="toc-number">1.</span> <span class="toc-text">数据加密</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据加密模型"><span class="toc-number">1.1.</span> <span class="toc-text">数据加密模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据加密概念"><span class="toc-number">1.2.</span> <span class="toc-text">数据加密概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据加密原理"><span class="toc-number">1.3.</span> <span class="toc-text">数据加密原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对称密钥加密（保密密钥法）"><span class="toc-number">1.3.1.</span> <span class="toc-text">对称密钥加密（保密密钥法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非对称密钥加密（公开密钥法）"><span class="toc-number">1.3.2.</span> <span class="toc-text">非对称密钥加密（公开密钥法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单向散列算法（哈希算法）"><span class="toc-number">1.3.3.</span> <span class="toc-text">单向散列算法（哈希算法）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据完整性"><span class="toc-number">2.</span> <span class="toc-text">数据完整性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据完整性定义"><span class="toc-number">2.1.</span> <span class="toc-text">数据完整性定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本思路"><span class="toc-number">2.2.</span> <span class="toc-text">基本思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据完整性模型"><span class="toc-number">2.3.</span> <span class="toc-text">数据完整性模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据完整性机制"><span class="toc-number">2.4.</span> <span class="toc-text">数据完整性机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#完整性验证中加密的安全"><span class="toc-number">2.4.1.</span> <span class="toc-text">完整性验证中加密的安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据完整性验证的信息有效率"><span class="toc-number">2.4.2.</span> <span class="toc-text">数据完整性验证的信息有效率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完整性验证算法的性能"><span class="toc-number">2.4.3.</span> <span class="toc-text">完整性验证算法的性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完整性验证算法的性能-1"><span class="toc-number">2.4.4.</span> <span class="toc-text">完整性验证算法的性能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于数据校验思想的数据完整性验证机制"><span class="toc-number">2.5.</span> <span class="toc-text">基于数据校验思想的数据完整性验证机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于错误检测码与对称密钥加密的完整性验证机制"><span class="toc-number">2.6.</span> <span class="toc-text">基于错误检测码与对称密钥加密的完整性验证机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于非对称密钥和对称密钥结合的完整性验证机制"><span class="toc-number">2.7.</span> <span class="toc-text">基于非对称密钥和对称密钥结合的完整性验证机制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#防止抵赖"><span class="toc-number">3.</span> <span class="toc-text">防止抵赖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#防止抵赖的意义"><span class="toc-number">3.1.</span> <span class="toc-text">防止抵赖的意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防止抵赖的基本思路"><span class="toc-number">3.2.</span> <span class="toc-text">防止抵赖的基本思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不可抵赖机制"><span class="toc-number">3.3.</span> <span class="toc-text">不可抵赖机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字签名"><span class="toc-number">3.4.</span> <span class="toc-text">数字签名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数字签名的意义"><span class="toc-number">3.4.1.</span> <span class="toc-text">数字签名的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数字签名的特性"><span class="toc-number">3.4.2.</span> <span class="toc-text">数字签名的特性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#身份认证"><span class="toc-number">4.</span> <span class="toc-text">身份认证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#身份认证的含义"><span class="toc-number">4.1.</span> <span class="toc-text">身份认证的含义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#身份认证的参数"><span class="toc-number">4.2.</span> <span class="toc-text">身份认证的参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#明文方式"><span class="toc-number">4.3.</span> <span class="toc-text">明文方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加密方式"><span class="toc-number">4.4.</span> <span class="toc-text">加密方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#质询方式"><span class="toc-number">4.5.</span> <span class="toc-text">质询方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#口令认证安全策略"><span class="toc-number">4.6.</span> <span class="toc-text">口令认证安全策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#口令认证应用"><span class="toc-number">4.7.</span> <span class="toc-text">口令认证应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#认证令牌"><span class="toc-number">4.8.</span> <span class="toc-text">认证令牌</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#质询-响应方式"><span class="toc-number">4.9.</span> <span class="toc-text">质询/响应方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对称密码认证基础"><span class="toc-number">4.10.</span> <span class="toc-text">对称密码认证基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对称密码认证模型"><span class="toc-number">4.11.</span> <span class="toc-text">对称密码认证模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#公钥密码认证基础"><span class="toc-number">4.12.</span> <span class="toc-text">公钥密码认证基础</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#访问控制"><span class="toc-number">5.</span> <span class="toc-text">访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#访问控制的意义"><span class="toc-number">5.1.</span> <span class="toc-text">访问控制的意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问控制的三要素"><span class="toc-number">5.2.</span> <span class="toc-text">访问控制的三要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问控制的两个重要过程"><span class="toc-number">5.3.</span> <span class="toc-text">访问控制的两个重要过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问控制关系模型"><span class="toc-number">5.4.</span> <span class="toc-text">访问控制关系模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自主访问控制（DAC或基于身份的访问控制）"><span class="toc-number">5.5.</span> <span class="toc-text">自主访问控制（DAC或基于身份的访问控制）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#强制访问控制（MAC或基于规则的访问控制）"><span class="toc-number">5.6.</span> <span class="toc-text">强制访问控制（MAC或基于规则的访问控制）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#强制访问控制实现机制"><span class="toc-number">5.7.</span> <span class="toc-text">强制访问控制实现机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于角色的访问控制（RBAC）"><span class="toc-number">5.8.</span> <span class="toc-text">基于角色的访问控制（RBAC）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RBAC产生背景"><span class="toc-number">5.8.1.</span> <span class="toc-text">RBAC产生背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RBAC模型的基本思想"><span class="toc-number">5.8.2.</span> <span class="toc-text">RBAC模型的基本思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RBAC安全机制"><span class="toc-number">5.8.3.</span> <span class="toc-text">RBAC安全机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RBAC特点"><span class="toc-number">5.8.4.</span> <span class="toc-text">RBAC特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与企业分层管理结构一致"><span class="toc-number">5.8.5.</span> <span class="toc-text">与企业分层管理结构一致</span></a></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 3
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/19/Cryptography/" >Cryptography</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2018/11/29/Security service/" >Security service</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/bugku/" >Bugku WriteUp</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="REV"><span class="iconfont-archer">&#xe606;</span>REV</span>
+    
+        <span class="sidebar-tag-name" data-tags="CTF"><span class="iconfont-archer">&#xe606;</span>CTF</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="数据加密"><span class="iconfont-archer">&#xe60a;</span>数据加密</span>
+    
+        <span class="sidebar-category-name" data-categories="cryptography"><span class="iconfont-archer">&#xe60a;</span>cryptography</span>
+    
+        <span class="sidebar-category-name" data-categories="CTF"><span class="iconfont-archer">&#xe60a;</span>CTF</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Hi-to-you"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

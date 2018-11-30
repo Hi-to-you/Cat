@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.4k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -417,7 +417,11 @@ height:50vh;
 <h1 id="眼见非实"><a href="#眼见非实" class="headerlink" title="眼见非实"></a>眼见非实</h1><p>打开软件，发现是以504B0304开头，说明是zip文件<br><br><img src="https://i.imgur.com/v8Qajt2.png" alt=""><br><br>将文件名后缀名更改为zip，将其解压<br><br><img src="https://i.imgur.com/7FZhBzx.png" alt=""><br><br>把里面的文件打开看<br><br><img src="https://i.imgur.com/bkOPAPx.png" alt=""><br></p>
 <h1 id="又一张图片，还单纯嘛？"><a href="#又一张图片，还单纯嘛？" class="headerlink" title="又一张图片，还单纯嘛？"></a>又一张图片，还单纯嘛？</h1><p>题目给出一张图片。我们把它放到kali里，用binwalk分析一下<br><br><img src="https://i.imgur.com/5fC8xLR.png" alt=""><br><br>发现图片里还包含着一张图片，我们用<code>foremost</code>分离出来<br><br><img src="https://i.imgur.com/hZYZqwW.png" alt=""><br><br>将图片分离出来，flag就直接在图片上<br><br><img src="https://i.imgur.com/8AZBl1G.png" alt=""><br></p>
 <h1 id="闪的好快"><a href="#闪的好快" class="headerlink" title="闪的好快"></a>闪的好快</h1><p>题目给我们一张gif图片，打开之后发现在真的像题目描述一样，闪的巨快<br><br>这个时候我们可以考虑把它分帧，通过在线分帧的方式我们得到十六张二维码的图片<br><br><img src="https://i.imgur.com/xEOoHPh.png" alt=""><br><br>当然我们也可以通过工具来解这题<br><br>这里我们使用StegSolve，然后Analysis-&gt;Frame Browser<br><br><img src="https://i.imgur.com/4j7WZg1.png" alt=""><br><br>通过在线解二维码，得到flag<br><br><code>flag:SYC{F1aSh_so_f4sT}</code></p>
-<h1 id="隐写2"><a href="#隐写2" class="headerlink" title="隐写2"></a>隐写2</h1><p>把图片下载到桌面，没什么头绪，直接扔进winhex看看<br><br>看到了很多00填充数据，怀疑是捆绑了文件在里面<br><br>将图片后缀名改为zip并解压<br><br><img src="https://i.imgur.com/Pl5tfyt.png" alt=""><br><br>里面捆绑着一个压缩包和一张图片，图片的内容提示的就是这个压缩包的密码<br><br><img src="https://i.imgur.com/Hlq7xHS.jpg" alt=""><br><br>这个肯定是要我们猜解密码，太费事了，我们直接选择暴力破解<br><br><img src="https://i.imgur.com/DFbFcb5.png" alt=""><br><br>因为我这个是zip破解软件，所以我把后缀名改为了zip进行破解<br><img src="https://i.imgur.com/vJX4gc8.png" alt=""><br><br>提示说是三位数，所以我们把长度改为3<br><br><img src="https://i.imgur.com/bAEh8D3.png" alt=""><br><br>这样我们就把flag.rar的密码给爆破出来啦<br><br><img src="https://i.imgur.com/kjvpxlB.jpg" alt=""><br><br>解压之后又是一张图片，令人猝不及防,这个直接用记事本打开就好<br><br><img src="https://i.imgur.com/NhYhfVj.png" alt=""><br><br>按照以前的套路，关键信息往往藏在最后面，在最后面发现一串类密文的字符串<br><br><code>f1@g{eTB1IEFyZSBhIGhAY2tlciE=}</code><br><br>我们把里面的密文进行base64解密<br><br><img src="https://i.imgur.com/jHRLEyp.png" alt=""><br><br><code>flag:flag{y0u Are a h@cker!}</code></p>
+<h1 id="隐写2"><a href="#隐写2" class="headerlink" title="隐写2"></a>隐写2</h1><p>把图片下载到桌面，没什么头绪，直接扔进winhex看看<br><br>看到了很多00填充数据，怀疑是捆绑了文件在里面<br><br>将图片后缀名改为zip并解压<br><br><img src="https://i.imgur.com/Pl5tfyt.png" alt=""><br><br>里面捆绑着一个压缩包和一张图片，图片的内容提示的就是这个压缩包的密码<br><br><img src="https://i.imgur.com/Hlq7xHS.jpg" alt=""><br><br>这个肯定是要我们猜解密码，太费事了，我们直接选择暴力破解<br><br><img src="https://i.imgur.com/DFbFcb5.png" alt=""><br><br>因为我这个是zip破解软件，所以我把后缀名改为了zip进行破解<br><img src="https://i.imgur.com/vJX4gc8.png" alt=""><br><br>提示说是三位数，所以我们把长度改为3<br><br><img src="https://i.imgur.com/bAEh8D3.png" alt=""><br><br>这样我们就把flag.rar的密码给爆破出来啦<br><br><img src="https://i.imgur.com/kjvpxlB.jpg" alt=""><br><br>解压之后又是一张图片，令人猝不及防,这个直接用记事本打开就好<br><br><img src="https://i.imgur.com/NhYhfVj.png" alt=""><br><br>按照以前的套路，关键信息往往藏在最后面，在最后面发现一串类密文的字符串<br><br><code>f1@g{eTB1IEFyZSBhIGhAY2tlciE=}</code><br><br>我们把里面的密文进行base64解密<br><br><img src="https://i.imgur.com/jHRLEyp.png" alt=""><br><br><code>flag:flag{y0u Are a h@cker!}</code> <br></p>
+<h1 id="宽带信息泄露"><a href="#宽带信息泄露" class="headerlink" title="宽带信息泄露"></a>宽带信息泄露</h1><p>首先我们下载下来的附件是bin为后缀的配置文件，我们尝试用文本软件打开<br><br><img src="https://i.imgur.com/8Nqv5a4.png" alt=""><br><br>打开我们发现是一堆乱码，猜测是配置文件被加密了，我们使用RouterPassView来打开<br><br>因为题目提示flag是用户名，我们可以搜索username试试<br><br><img src="https://i.imgur.com/GbmJ9lE.png" alt=""><br><br><code>flag:flag{053700357621}</code><br></p>
+<h1 id="管理员系统"><a href="#管理员系统" class="headerlink" title="管理员系统"></a>管理员系统</h1><p>首先日常查看原码，初步看是没什么问题的，但是页面最后发现了一串base64 <br><br><img src="https://i.imgur.com/mNjLSZL.png" alt=""><br><br>不得不说这真是太套路了，很难注意到这个，解密为test123，猜测为admin密码<br><br><img src="https://i.imgur.com/7cFLMST.png" alt=""><br><br>根据提示我们知道需要伪造本地IP才可以访问,这个时候就想到<code>X-Forwarded-For</code><br><br><code>简称XFF头，代表客户端，也就是HTTP的请求端真实的IP</code><br><br>伪造一个XFF头,伪装成本地登录<br><br><code>X-Forwarded-For: 127.0.0.1</code><br><br>抓包并将语句加入进去<br><br><img src="https://i.imgur.com/wZNdq71.png" alt=""><br><br><code>The flag is: 85ff2ee4171396724bae20c0bd851f6b</code><br></p>
+<h1 id="程序员网站"><a href="#程序员网站" class="headerlink" title="程序员网站"></a>程序员网站</h1><p><img src="https://i.imgur.com/hNAtNfV.png" alt=""><br><br>提示了我们要从本地访问，跟上个题目一样需要用到<code>X-Forwarded-For</code>来伪造成本地IP<br><br><img src="https://i.imgur.com/v0BkrJT.png" alt=""><br><br><code>flag{loc-al-h-o-st1}</code></p>
+<h1 id="啊哒"><a href="#啊哒" class="headerlink" title="啊哒"></a>啊哒</h1><p>下载发现是一张表情包，惯例我们查看下它的属性<br><br><img src="https://i.imgur.com/znQFHX2.png" alt=""> <br><br>上面我们发现一串数字和字母，我们用十六进制转字符串<br><br><img src="https://i.imgur.com/JtzX17X.png" alt=""><br><br>这一串字符我们现在还不知道是什么，先放在这<br><br>通过winhex我们发现图片存在捆绑文件，将它后缀改为zip进行解压<br>解压过程中，提示我们输入密码，这个时候我们将刚才的字符串输入进去得到一个flag.txt文件<br><br><img src="https://i.imgur.com/71Ph8re.png" alt=""><br><br><code>flag{3XiF_iNf0rM@ti0n}</code></p>
 
     </article>
     <!-- license  -->
@@ -427,8 +431,8 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/10/19/密码学/" title= "密码学">
-                    <div class="nextTitle">密码学</div>
+                <a href= "/2018/10/19/Cryptography/" title= "Cryptography">
+                    <div class="nextTitle">Cryptography</div>
                 </a>
             
         </li>
@@ -557,7 +561,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#矛盾"><span class="toc-number">1.</span> <span class="toc-text">矛盾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web3"><span class="toc-number">2.</span> <span class="toc-text">web3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地包含"><span class="toc-number">3.</span> <span class="toc-text">本地包含</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#flag在index里"><span class="toc-number">4.</span> <span class="toc-text">flag在index里</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网站被黑"><span class="toc-number">5.</span> <span class="toc-text">网站被黑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过狗一句话"><span class="toc-number">6.</span> <span class="toc-text">过狗一句话</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#眼见非实"><span class="toc-number">7.</span> <span class="toc-text">眼见非实</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#又一张图片，还单纯嘛？"><span class="toc-number">8.</span> <span class="toc-text">又一张图片，还单纯嘛？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#闪的好快"><span class="toc-number">9.</span> <span class="toc-text">闪的好快</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#隐写2"><span class="toc-number">10.</span> <span class="toc-text">隐写2</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#矛盾"><span class="toc-number">1.</span> <span class="toc-text">矛盾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web3"><span class="toc-number">2.</span> <span class="toc-text">web3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地包含"><span class="toc-number">3.</span> <span class="toc-text">本地包含</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#flag在index里"><span class="toc-number">4.</span> <span class="toc-text">flag在index里</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网站被黑"><span class="toc-number">5.</span> <span class="toc-text">网站被黑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过狗一句话"><span class="toc-number">6.</span> <span class="toc-text">过狗一句话</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#眼见非实"><span class="toc-number">7.</span> <span class="toc-text">眼见非实</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#又一张图片，还单纯嘛？"><span class="toc-number">8.</span> <span class="toc-text">又一张图片，还单纯嘛？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#闪的好快"><span class="toc-number">9.</span> <span class="toc-text">闪的好快</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#隐写2"><span class="toc-number">10.</span> <span class="toc-text">隐写2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#宽带信息泄露"><span class="toc-number">11.</span> <span class="toc-text">宽带信息泄露</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#管理员系统"><span class="toc-number">12.</span> <span class="toc-text">管理员系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序员网站"><span class="toc-number">13.</span> <span class="toc-text">程序员网站</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#啊哒"><span class="toc-number">14.</span> <span class="toc-text">啊哒</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -588,9 +592,16 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 2
+        Total : 3
         </div>
         <!-- search  -->
         
@@ -606,7 +617,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/19/密码学/" >密码学</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/19/Cryptography/" >Cryptography</a>
         </li>
     
     
@@ -620,6 +631,11 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2018/11/29/Security service/" >Security service</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/bugku/" >Bugku WriteUp</a>
         </li>
     
@@ -627,6 +643,10 @@ top:50vh;
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="REV"><span class="iconfont-archer">&#xe606;</span>REV</span>
+    
+        <span class="sidebar-tag-name" data-tags="CTF"><span class="iconfont-archer">&#xe606;</span>CTF</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
@@ -663,9 +683,11 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="CTF"><span class="iconfont-archer">&#xe60a;</span>CTF</span>
+        <span class="sidebar-category-name" data-categories="数据加密"><span class="iconfont-archer">&#xe60a;</span>数据加密</span>
     
-        <span class="sidebar-category-name" data-categories="密码学"><span class="iconfont-archer">&#xe60a;</span>密码学</span>
+        <span class="sidebar-category-name" data-categories="cryptography"><span class="iconfont-archer">&#xe60a;</span>cryptography</span>
+    
+        <span class="sidebar-category-name" data-categories="CTF"><span class="iconfont-archer">&#xe60a;</span>CTF</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

@@ -376,38 +376,6 @@ Base32:https://tools.deamwork.com/crypt/dec...
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/18/bugku/" >
-            
-                <span>Bugku WriteUp</span>
-        </a>
-        <div class="abstract-content">
-            矛盾
-判断输入的num  如果不是数字的话且为1的话输出flag 但是我们有很多方法让num为1但是不是数字 使用is_numeric遇到%00截断的漏洞,进行构造http://120.24.86.145:8002/get/index1.php?num=1%00get请求爆出flag 
-web3直接查看原码 将下面那一行字符串进行HTML解码 这题难度可能较低，主要是明白这个是什么码，题目做的多的大佬可能一眼就能看出来解法了。
-本地包含$_REQUEST对get，post都能接受include“flag.php”说明该文件还存在本地获得hello的值，由于hello为’hello’，所以...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
 </main>

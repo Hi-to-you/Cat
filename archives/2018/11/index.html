@@ -346,62 +346,31 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/19/Cryptography/" >
+        <a class="abstract-title" href = "/2018/11/29/Security service/" >
             
-                <span>Cryptography</span>
+                <span>Security service</span>
         </a>
         <div class="abstract-content">
-            关于解密的在线网站我们经常在做CTF题目中，会遇到各种各样的密文，所以今天推荐一些在线解密网站.
-
-xssee:http://web2hack.org/xssee
-在线编码解码(多种并排):http://bianma.911cha.com
-在线加密解密(多种):http://encode.chahuo.com
-凯撒密码:http://planetcalc.com/1434/
-ROT5/13/18/47编码转换:http://www.qqxiuzi.cn/bianma/ROT5-13-18-47.php
-Base32:https://tools.deamwork.com/crypt/dec...
+            数据加密数据加密模型
+数据加密概念数据加密是指将一个信息（明文）经过加密密钥及加密函数转换为没有意义的另一个信息（密文）的过程。该过程的逆过程称为加密。
+明文：加密前的原始信息；
+密文：明文被加密后的信息；
+密钥：控制加密算法和解密算法得以实现的关键信息，分为加密密钥和解密密钥；
+加密：将明文通过数学算法转换成密文的过程；
+解密：将密文还原成明文的过程。
+密码技术是解决信息安全最有效的手段，是解决信息安全的核心技术。数据加密的基本思想是通过变换信息的表示形式来伪装需要保护的敏感信息，使非授权者不能了解被保护信息的内容。使用密码技术的目的是为了保护信息的保密性、完整性和真实性。
+数据加密原...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/19</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/29</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "CTF">CTF</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/18/bugku/" >
-            
-                <span>Bugku WriteUp</span>
-        </a>
-        <div class="abstract-content">
-            矛盾
-判断输入的num  如果不是数字的话且为1的话输出flag 但是我们有很多方法让num为1但是不是数字 使用is_numeric遇到%00截断的漏洞,进行构造http://120.24.86.145:8002/get/index1.php?num=1%00get请求爆出flag 
-web3直接查看原码 将下面那一行字符串进行HTML解码 这题难度可能较低，主要是明白这个是什么码，题目做的多的大佬可能一眼就能看出来解法了。
-本地包含$_REQUEST对get，post都能接受include“flag.php”说明该文件还存在本地获得hello的值，由于hello为’hello’，所以...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "REV">REV</a>
     
 </div>
             
